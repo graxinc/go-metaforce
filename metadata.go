@@ -2,10 +2,11 @@ package metaforce
 
 import (
 	"encoding/xml"
-	"github.com/tzmfreedom/go-soapforce"
 	"io"
 	"net"
 	"time"
+
+	"github.com/tzmfreedom/go-soapforce"
 )
 
 // against "unused imports"
@@ -4507,16 +4508,12 @@ type UpsertMetadataResponse struct {
 }
 
 type CancelDeployResult struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata CancelDeployResult"`
-
 	Done bool `xml:"done,omitempty"`
 
 	Id ID `xml:"id,omitempty"`
 }
 
 type DeployResult struct {
-	//XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata DeployResult"`
-
 	CanceledBy string `xml:"canceledBy,omitempty"`
 
 	CanceledByName string `xml:"canceledByName,omitempty"`
@@ -4571,8 +4568,6 @@ type DeployResult struct {
 }
 
 type DeployDetails struct {
-	//XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata DeployDetails"`
-
 	ComponentFailures []*DeployMessage `xml:"componentFailures,omitempty"`
 
 	ComponentSuccesses []*DeployMessage `xml:"componentSuccesses,omitempty"`
@@ -4583,8 +4578,6 @@ type DeployDetails struct {
 }
 
 type DeployMessage struct {
-	//XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata DeployMessage"`
-
 	Changed bool `xml:"changed,omitempty"`
 
 	ColumnNumber int32 `xml:"columnNumber,omitempty"`
@@ -4613,8 +4606,6 @@ type DeployMessage struct {
 }
 
 type RetrieveResult struct {
-	//XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata RetrieveResult"`
-
 	Done bool `xml:"done,omitempty"`
 
 	ErrorMessage string `xml:"errorMessage,omitempty"`
@@ -4661,16 +4652,12 @@ type FileProperties struct {
 }
 
 type RetrieveMessage struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata RetrieveMessage"`
-
 	FileName string `xml:"fileName,omitempty"`
 
 	Problem string `xml:"problem,omitempty"`
 }
 
 type RunTestsResult struct {
-	//XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata RunTestsResult"`
-
 	ApexLogId string `xml:"apexLogId,omitempty"`
 
 	CodeCoverage []*CodeCoverageResult `xml:"codeCoverage,omitempty"`
@@ -4689,8 +4676,6 @@ type RunTestsResult struct {
 }
 
 type CodeCoverageResult struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata CodeCoverageResult"`
-
 	DmlInfo []*CodeLocation `xml:"dmlInfo,omitempty"`
 
 	Id ID `xml:"id,omitempty"`
@@ -4715,8 +4700,6 @@ type CodeCoverageResult struct {
 }
 
 type CodeLocation struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata CodeLocation"`
-
 	Column int32 `xml:"column,omitempty"`
 
 	Line int32 `xml:"line,omitempty"`
@@ -4727,8 +4710,6 @@ type CodeLocation struct {
 }
 
 type CodeCoverageWarning struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata CodeCoverageWarning"`
-
 	Id ID `xml:"id,omitempty"`
 
 	Message string `xml:"message,omitempty"`
@@ -4739,8 +4720,6 @@ type CodeCoverageWarning struct {
 }
 
 type RunTestFailure struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata RunTestFailure"`
-
 	Id ID `xml:"id,omitempty"`
 
 	Message string `xml:"message,omitempty"`
@@ -4763,8 +4742,6 @@ type RunTestFailure struct {
 }
 
 type RunTestSuccess struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata RunTestSuccess"`
-
 	Id ID `xml:"id,omitempty"`
 
 	MethodName string `xml:"methodName,omitempty"`
@@ -4778,7 +4755,7 @@ type RunTestSuccess struct {
 	Time float64 `xml:"time,omitempty"`
 }
 
-type MetadataInterface interface {}
+type MetadataInterface interface{}
 
 type Metadata struct {
 	FullName string `xml:"fullName,omitempty"`
@@ -4815,8 +4792,6 @@ type ActionLinkGroupTemplate struct {
 }
 
 type ActionLinkTemplate struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ActionLinkTemplate"`
-
 	ActionUrl string `xml:"actionUrl,omitempty"`
 
 	Headers string `xml:"headers,omitempty"`
@@ -4897,14 +4872,10 @@ type AddressSettings struct {
 }
 
 type CountriesAndStates struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata CountriesAndStates"`
-
 	Countries []*Country `xml:"countries,omitempty"`
 }
 
 type Country struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata Country"`
-
 	Active bool `xml:"active,omitempty"`
 
 	IntegrationValue string `xml:"integrationValue,omitempty"`
@@ -4923,8 +4894,6 @@ type Country struct {
 }
 
 type State struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata State"`
-
 	Active bool `xml:"active,omitempty"`
 
 	IntegrationValue string `xml:"integrationValue,omitempty"`
@@ -4959,8 +4928,6 @@ type AnalyticSnapshot struct {
 }
 
 type AnalyticSnapshotMapping struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata AnalyticSnapshotMapping"`
-
 	AggregateType *ReportSummaryType `xml:"aggregateType,omitempty"`
 
 	SourceField string `xml:"sourceField,omitempty"`
@@ -4987,8 +4954,6 @@ type AppMenu struct {
 }
 
 type AppMenuItem struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata AppMenuItem"`
-
 	Name string `xml:"name,omitempty"`
 
 	Type_ string `xml:"type,omitempty"`
@@ -5041,22 +5006,16 @@ type ApprovalProcess struct {
 }
 
 type ApprovalSubmitter struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ApprovalSubmitter"`
-
 	Submitter string `xml:"submitter,omitempty"`
 
 	Type_ *ProcessSubmitterType `xml:"type,omitempty"`
 }
 
 type ApprovalPageField struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ApprovalPageField"`
-
 	Field []string `xml:"field,omitempty"`
 }
 
 type ApprovalStep struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ApprovalStep"`
-
 	AllowDelegate bool `xml:"allowDelegate,omitempty"`
 
 	ApprovalActions *ApprovalAction `xml:"approvalActions,omitempty"`
@@ -5109,8 +5068,6 @@ type Approver struct {
 }
 
 type ApprovalEntryCriteria struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ApprovalEntryCriteria"`
-
 	BooleanFilter string `xml:"booleanFilter,omitempty"`
 
 	CriteriaItems []*FilterItem `xml:"criteriaItems,omitempty"`
@@ -5139,22 +5096,16 @@ type DuplicateRuleFilterItem struct {
 }
 
 type ApprovalStepRejectBehavior struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ApprovalStepRejectBehavior"`
-
 	Type_ *StepRejectBehaviorType `xml:"type,omitempty"`
 }
 
 type NextAutomatedApprover struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata NextAutomatedApprover"`
-
 	UseApproverFieldOfRecordOwner bool `xml:"useApproverFieldOfRecordOwner,omitempty"`
 
 	UserHierarchyField string `xml:"userHierarchyField,omitempty"`
 }
 
 type AssignmentRule struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata AssignmentRule"`
-
 	*Metadata
 
 	Active bool `xml:"active,omitempty"`
@@ -5163,8 +5114,6 @@ type AssignmentRule struct {
 }
 
 type RuleEntry struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata RuleEntry"`
-
 	AssignedTo string `xml:"assignedTo,omitempty"`
 
 	AssignedToType *AssignToLookupValueType `xml:"assignedToType,omitempty"`
@@ -5201,8 +5150,6 @@ type RuleEntry struct {
 }
 
 type EscalationAction struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata EscalationAction"`
-
 	AssignedTo string `xml:"assignedTo,omitempty"`
 
 	AssignedToTemplate string `xml:"assignedToTemplate,omitempty"`
@@ -5245,8 +5192,6 @@ type AssistantRecommendationType struct {
 }
 
 type PlatformActionList struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata PlatformActionList"`
-
 	*Metadata
 
 	ActionListContext *PlatformActionListContext `xml:"actionListContext,omitempty"`
@@ -5257,8 +5202,6 @@ type PlatformActionList struct {
 }
 
 type PlatformActionListItem struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata PlatformActionListItem"`
-
 	ActionName string `xml:"actionName,omitempty"`
 
 	ActionType *PlatformActionType `xml:"actionType,omitempty"`
@@ -5303,8 +5246,6 @@ type AuraDefinitionBundle struct {
 }
 
 type PackageVersion struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata PackageVersion"`
-
 	MajorNumber int32 `xml:"majorNumber,omitempty"`
 
 	MinorNumber int32 `xml:"minorNumber,omitempty"`
@@ -5359,8 +5300,6 @@ type AuthProvider struct {
 }
 
 type AutoResponseRule struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata AutoResponseRule"`
-
 	*Metadata
 
 	Active bool `xml:"active,omitempty"`
@@ -5377,8 +5316,6 @@ type AutoResponseRules struct {
 }
 
 type BusinessHoursEntry struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata BusinessHoursEntry"`
-
 	*Metadata
 
 	Active bool `xml:"active,omitempty"`
@@ -5465,8 +5402,6 @@ type Holiday struct {
 }
 
 type BusinessProcess struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata BusinessProcess"`
-
 	*Metadata
 
 	Description string `xml:"description,omitempty"`
@@ -10619,7 +10554,7 @@ type OpportunitySettings struct {
 }
 
 type FindSimilarOppFilter struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata FindSimilarOppFilter"`
+	// MLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata FindSimilarOppFilter"`
 
 	SimilarOpportunitiesDisplayColumns []string `xml:"similarOpportunitiesDisplayColumns,omitempty"`
 
@@ -10647,8 +10582,6 @@ type OrgPreferenceSettings struct {
 }
 
 type OrganizationSettingsDetail struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata OrganizationSettingsDetail"`
-
 	SettingName string `xml:"settingName,omitempty"`
 
 	SettingValue bool `xml:"settingValue,omitempty"`
@@ -10679,8 +10612,6 @@ type Package struct {
 }
 
 type ProfileObjectPermissions struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ProfileObjectPermissions"`
-
 	AllowCreate bool `xml:"allowCreate,omitempty"`
 
 	AllowDelete bool `xml:"allowDelete,omitempty"`
@@ -10697,8 +10628,6 @@ type ProfileObjectPermissions struct {
 }
 
 type PackageTypeMembers struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata PackageTypeMembers"`
-
 	Members []string `xml:"members,omitempty"`
 
 	Name string `xml:"name,omitempty"`
@@ -12715,8 +12644,6 @@ type DeleteResult struct {
 }
 
 type DeployOptions struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata DeployOptions"`
-
 	AllowMissingFiles bool `xml:"allowMissingFiles,omitempty"`
 
 	AutoUpdatePackage bool `xml:"autoUpdatePackage,omitempty"`
@@ -12821,8 +12748,6 @@ type PicklistEntry struct {
 }
 
 type ListMetadataQuery struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata ListMetadataQuery"`
-
 	Folder string `xml:"folder,omitempty"`
 
 	Type string `xml:"type,omitempty"`
@@ -12855,7 +12780,7 @@ type UpsertResult struct {
 }
 
 type LogInfo struct {
-	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata LogInfo"`
+	XMLName xml.Name `xml:"http://soap.sforce.com/2006/04/metadata categories"`
 
 	Category *LogCategory `xml:"category,omitempty"`
 
@@ -12876,10 +12801,10 @@ type LoginResponse struct {
 type LoginResult struct {
 	MetadataServerUrl string `xml:"metadataServerUrl"`
 	PasswordExpired   bool   `xml:"passwordExpired"`
-	Sandbox           bool   `xml:"sandbox`
+	Sandbox           bool   `xml:"sandbox"`
 	ServerUrl         string `xml:"serverUrl"`
 	SessionId         string `xml:"sessionId"`
-	UserId            ID    `xml:"userId"`
+	UserId            ID     `xml:"userId"`
 	//	UserInfo *UserInfo `xml:"userInfo"`
 }
 
